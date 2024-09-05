@@ -1,102 +1,76 @@
-# Expense Tracker
+# Workout Tracker
 
-![expense-tracker](/public/photos/expense-tracker.gif)
+This is a Vanilla JavaScript Project using Object-oriented programming.
 
-Expense Tracker is a simple RESTful web application built with Node.js, Express, and mongoDB for users to track daily expenses.
+## Table of contents
 
-This project is Live on: https://sleepy-cliffs-84117.herokuapp.com/
+- [Overview](#overview)
+  - [Screenshot](#screenshot)
+  - [Links](#links)
+- [My process](#my-process)
+  - [Built with](#built-with)
+  - [What I learned](#what-i-learned)
+  - [Useful resources](#useful-resources)
+- [Author](#author)
 
-You can use the default accounts below, register an account, or use your Facebook/Google account to login.
+## Overview
 
-```
-email: user1@example.com/user2@example.com
-password: 12345678
-```
+### Screenshot
 
-## Features
+![workout-tracker-kappa vercel app_(iMac)](https://user-images.githubusercontent.com/108392678/199262804-47b8a9d1-4337-4eb0-a75f-6249eec81b43.png)
 
-- Sign up for an account by providing name, email, and password
-- Log in with email, Facebook, or Google account
-- Log out of an account
+### Links
 
-After login, users can:
+- DEMO:[Link](https://workout-tracker-kappa.vercel.app/)
 
-- View all expenses/revenues
-- View total amount of expenses/revenues/balance
-- View expenses break down by category and month in chart visualizations
-- View monthly spent and remaining budget in pie chart
-- Filter expenses by category and month
-- Filter revenues by month
-- Add an expense and a revenue
-- Edit their expense, revenue, budget, avatar, and name
-- Delete an expense and a revenue
+## My process
 
-![RWD](/public/photos/expense-tracker-RWD.gif)
-![Home page](/public/photos/index.png)
-![Login page](/public/photos/login-new.png)
-![Register page](/public/photos/register-new.png)
-![Expenses page](/public/photos/expenses.png)
-![Revenues page](/public/photos/revenues.png)
+### Built with
 
-## Prerequisites
+- [JavaScript (ES6 Classes)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes)
 
-- [Git](https://git-scm.com/downloads)
-- [Node.js v14.15.1](https://nodejs.org/en/)
-- [Express](https://expressjs.com/)
-- [mongoDB](https://www.mongodb.com/)
+### What I learned
 
-## Install Expense Tracker
+- Design as a Responsive web
+- Use of Local Storage API
+- Geolocation API
+- Displaying Google map via Leaflet Library
+- Using custom icons for Leaflet instead of just normal points on the map
+- Abilities to edit & delete workout and delete all workouts
+- Ability to sort workouts by certain fields(distance, time)
+- Position the map to show all workouts
+- Click on popup, move map to corresponding popup
+- Map Zoom and View control
+- Markup and styling for new created submenus & realistic error message
 
-#### Clone the repository locally
+Here is a code snippet:
 
-```
-$ git clone https://github.com/ivyhungtw/expense-tracker.git
-```
+```script.js
+class Running extends Workout {
+  type = 'running';
 
-#### Install project dependencies
+  constructor(coords, distance, duration, city, country, cadence) {
+    super(coords, distance, duration, city, country);
+    this.cadence = cadence;
+    this._calcPace();
+    this._setDescription();
+  }
 
-```
-$ cd expense-tracker
-$ npm install
-```
-
-#### Add .env file
-
-To properly use the app and Facebook login feature, make sure you have filled out the following information in .env file.
-
-You can get your own Facebook id and secret on [Facebook Developers](https://developers.facebook.com/).
-
-```
-FACEBOOK_ID=<Your Facebook app ID>
-FACEBOOK_SECRET=<Your Facebook app secret>
-FACEBOOK_CALLBACK=http://localhost:3000/auth/facebook/callback
-SESSION_SECRET=ThisIsMySecret
-MONGODB_URI=mongodb://localhost/todo-list
-PORT=3000
+  _calcPace() {
+    this.pace = this.duration / this.distance;
+  }
+}
 ```
 
-## Use Expense Tracker
 
-#### Import seed data
+### Useful resources
 
-To have default users, categories, and records set up, run the following script.
+- [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes) - This helped me for creating ES6 classes.
+- [Leaflet](https://leafletjs.com/) - This helped me for showing Google Maps.
 
-```
-$ npm run seed
-```
 
-#### Start the app
+## Author
 
-If you have installed [nodemon](https://www.npmjs.com/package/nodemon), run the following script.
-
-```
-$ npm run dev
-```
-
-or just run:
-
-```
-$ node app.js
-```
-
-The server will start running on http://localhost:3000/
+- Website - [Marvin Morales Pacis](https://marvin-morales-pacis.vercel.app/)
+- LinkedIn - [@marventures](https://www.linkedin.com/in/marventures/)
+- Twitter - [@marventures11](https://www.twitter.com/marventures11)
